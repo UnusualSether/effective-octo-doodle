@@ -1,0 +1,26 @@
+//function showNext() {
+  // Check if we are already at the last panel
+  if (current < panels.length - 1) {
+    // Hide current panel
+    panels[current].classList.remove('active');
+
+    // Move to the next panel
+    current++;
+
+    // Show next panel
+    panels[current].classList.add('active');
+  } else {
+    alert("End of comic!");
+  }
+}
+
+function goBack(){
+  if (current > 0){
+// hide current panel
+    panels[current].classList.remove('active')
+
+    current--;
+
+    panels[current].classList.add('active')
+  }
+}
