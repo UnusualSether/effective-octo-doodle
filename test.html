@@ -1,76 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Comic Panels Reveal</title>
-  <style>
-    body {
-      background: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+    <meta charset="UTF-8">
+    <title>Comic Panels</title>
 
-    .panel-container {
-      position: relative;
-      width: 600px;
-      height: 400px;
-    }
+    <style>
+        /* === GENERAL PAGE SETUP === */
+        body {
+            background: black; /* Set background color to black for contrast */
+            display: flex; /* Use flexbox to arrange panels */
+            flex-direction: column; /* Telling the flex to go top to bottom*/
+            justify-content: flex-start; /* Center panels vertically */
+            align-items: center; /* Center panels vertically in the viewport */
+            min-height: 100vh; /* Make sure body takes up full viewport height */
+            margin: 0; /* Remove default page margins */
+            padding: 20px; /* Add padding around the panels */
+        }
 
-    .panel {
-      position: absolute;
-      width: 700px;
-      height: 700px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      cursor: pointer;
-    }
+        /* === PANEL STYLING === */
+        .panel {
+            width: 300px; /* Fixed width for each comic panel */
+            height: 300px; /* Fixed height (makes them square) */
+            background-size: cover; /* Scale background image to fill the panel */
+            background-position: center; /* Center the image inside the panel */
+           
+            /* Soft glow around panels */
+        }
 
-    /* white cover overlay */
-    .panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: white;
-      transition: opacity 0.4s ease;
-    }
+        /* === INDIVIDUAL PANELS === */
+        /* Each of these assigns a different image to a panel */
 
-    .panel.revealed::before {
-      opacity: 0;
-    }
+        .panel1 {
+            background-image: url('Panel1.png'); /* First comic image */
+            margin-bottom: 0px;
+        }
 
-    /* Losange / diagonal panel shapes */
-.losange2 {
-  clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
-}
+        .panel2 {
+            background-image: url('Panel2.png'); /* Second comic image */
+            margin-top: -25px;
+        }
 
-.losange1 {
-  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
-}
+        .panel3 {
+            background-image: url('panel3.jpg'); /* Third comic image */
 
-    /* individual positions */
-    .panel.losange1 { top: -600px; left: 100px;  }
-    .panel.losange2 { top: -225px; left: 100px; }
-    .panel3 { top: 500px; left: 100px; }
-  </style>
+            margin-top: 40px;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="panel-container">
-    <div class="panel losange1" style="background-image: url('Panel1.png')"></div>
-    <div class="panel losange2" style="background-image: url('Panel2.png')"></div>
-    <div class="panel panel3" style="background-image: url('panel3.jpg')"></div>
-  </div>
-
-  <script>
-    const panels = document.querySelectorAll('.panel');
-
-    panels.forEach(panel => {
-      panel.addEventListener('click', () => {
-        panel.classList.add('revealed');
-      });
-    });
-  </script>
+    <!-- === COMIC PANELS === -->
+    <!-- Each div represents one comic panel square -->
+    <div class="panel panel1"></div>  <!-- Panel 1 -->
+    <div class="panel panel2"></div>  <!-- Panel 2 -->
+    <div class="panel panel3"></div>  <!-- Panel 3 -->
 </body>
 </html>
